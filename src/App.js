@@ -12,6 +12,8 @@ import {
 
 
 import NotesState from './context/notes/NotesState';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
 
 function App() {
 
@@ -25,21 +27,20 @@ function App() {
     <Router>
 
     <Navbar/>
-<div div className='container'>
+
 
     <Routes>
           
         
-          <Route exact path="/" element={<Home/>}>
-     
-          </Route>
+          <Route exact path="/" element={<Home/>}></Route>
 
-          <Route exact path="/about" element={<About/>}>
-            
-          </Route>
+          <Route exact path="/about" element={<About/>}></Route>
+
+          <Route exact path="/login" element={<Login/>} ></Route>
+          <Route exact path="/signup" element={<SignUp/>} ></Route>
 
         </Routes>
-</div>
+
     
     </Router>
     
