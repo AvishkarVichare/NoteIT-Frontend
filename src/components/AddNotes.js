@@ -1,12 +1,14 @@
 import React,{useContext,useState} from 'react'
 import noteContext from '../context/notes/noteContext'
-
+import alertContext from '../context/alert/alertContext';
 
 
 
 const AddNotes = () => {
-
+    const a = useContext(alertContext);
     const n = useContext(noteContext);
+
+    const {showAlert} = a;
     const {addNotes} = n;
     
 
@@ -19,6 +21,7 @@ const AddNotes = () => {
         // console.log(note.title)
         addNotes(note.title,note.description,note.tag);
         setnote({title:"",description:"",tag:""})
+        showAlert("success","Successfuly Added")
     }
     
     const onChange = (e)=>{
@@ -45,7 +48,7 @@ const AddNotes = () => {
     <input type="text" className="form-control" id="tag" name="tag" value={note.tag}  onChange={onChange} />
   </div>
 
-  <button type="submit" className="btn btn-primary" onClick={handlClick}>Add</button>
+  <button disabled={note.description.length===0?true:false} type="submit" className="btn btn-primary" onClick={handlClick}>Add</button>
 </form>
         </div>
     )

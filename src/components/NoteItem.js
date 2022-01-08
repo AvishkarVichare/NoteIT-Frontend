@@ -16,18 +16,22 @@ const NoteItem = (props) => {
     // }
 
     return (
-        <div className="card col-md-3 mx-4 my-4 ">
+        <div className="card col-md-2 mx-4 my-4 p-4 ">
+      
         <div className="card-body">
             <div className='d-flex  '>
         <h6 className='align-items-center'> {props.title} </h6>
       
-        <i className="fas fa-pen mx-4"  onClick={()=>{updateNote(note)}}></i>
-        <i className="fas fa-trash mx-4" onClick={()=>{handleDelete(props.id)}}></i>
            
 
         </div>
         <div>{props.description}</div>
         </div>
+              <div className='d-flex'>
+
+        <i className="fas fa-pen mx-4"  onClick={()=>{updateNote(note)}}></i>
+        <i className="fas fa-trash mx-4" onClick={()=>{handleDelete(props.id)}}></i>
+              </div>
       </div>
     )
 }

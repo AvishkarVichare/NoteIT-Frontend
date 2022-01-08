@@ -1,7 +1,20 @@
-import React,{useEffect} from 'react'
-import { Link , useLocation } from 'react-router-dom'
+import React,{useContext, useEffect} from 'react'
+import { Link , useLocation, useNavigate } from 'react-router-dom'
+import alertContext from '../context/alert/alertContext'
 // imort {Link}
  const Navbar = () => {
+
+  const a = useContext(alertContext);
+
+  const {showAlert} = a;
+
+
+
+  const handleLogout = ()=>{
+    localStorage.removeItem('token');
+    showAlert("info","Logged Out")
+    
+  }
 
   let location = useLocation();
   useEffect(() => {
@@ -27,8 +40,12 @@ import { Link , useLocation } from 'react-router-dom'
        
        
       </ul>
-      <Link className="btn btn-primary mx-3" to="/login" role="button">Login</Link>
+      {
+      localStorage.getItem('token')?    <Link onClick={handleLogout} className="btn btn-primary mx-3" to="/login" role="button">Logout</Link>:<> <Link className="btn btn-primary mx-3" to="/login" role="button">Login</Link>
       <Link className="btn btn-primary" to="/signup" role="button">Sign Up</Link>
+      </>
+ }
+    
 
     </div>
   </div>

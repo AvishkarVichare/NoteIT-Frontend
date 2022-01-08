@@ -85,7 +85,7 @@ const fetchNotes = async()=>{
     method:'GET',
     headers:{
     
-      'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFjMThiN2Q0YTAxODhkNjE2NGZlYjk2In0sImlhdCI6MTY0MDM0MjE4Mn0.EK8sJ7NL4NGrU7eF327MOnM-soBRRJD1o__Fw-89HHo'
+      'auth-token':localStorage.getItem('token')
     }
   });
   const json = await response.json();
@@ -107,7 +107,7 @@ const fetchNotes = async()=>{
         method:'POST',
         headers:{
           'Content-Type': 'application/json',
-          'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFjMThiN2Q0YTAxODhkNjE2NGZlYjk2In0sImlhdCI6MTY0MDM0MjE4Mn0.EK8sJ7NL4NGrU7eF327MOnM-soBRRJD1o__Fw-89HHo'
+          'auth-token':localStorage.getItem('token')
         },
         body:JSON.stringify({title,description,tag})
       });
@@ -127,7 +127,7 @@ const fetchNotes = async()=>{
       method:'DELETE',
       headers:{
  
-        'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFjMThiN2Q0YTAxODhkNjE2NGZlYjk2In0sImlhdCI6MTY0MDM0MjE4Mn0.EK8sJ7NL4NGrU7eF327MOnM-soBRRJD1o__Fw-89HHo'
+        'auth-token':localStorage.getItem('token')
       }
     });
   
@@ -150,7 +150,7 @@ const fetchNotes = async()=>{
       method:'PUT',
       headers:{
         'Content-Type': 'application/json',
-        'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFjMThiN2Q0YTAxODhkNjE2NGZlYjk2In0sImlhdCI6MTY0MDM0MjE4Mn0.EK8sJ7NL4NGrU7eF327MOnM-soBRRJD1o__Fw-89HHo'
+        'auth-token':localStorage.getItem('token')
       },
       body:JSON.stringify({title,description,tag})
     });

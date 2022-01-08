@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,14 +14,20 @@ import {
 import NotesState from './context/notes/NotesState';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import AlertState from './context/alert/AlertState';
 
 function App() {
+
+ 
+
 
 
   return (
     
     <>
 <NotesState>
+  <AlertState>
+
 
 
     <Router>
@@ -32,7 +38,7 @@ function App() {
     <Routes>
           
         
-          <Route exact path="/" element={<Home/>}></Route>
+          <Route exact path="/"  element={<Home />}></Route>
 
           <Route exact path="/about" element={<About/>}></Route>
 
@@ -44,6 +50,8 @@ function App() {
     
     </Router>
     
+
+  </AlertState>
     </NotesState>
 
     </>

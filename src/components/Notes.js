@@ -2,19 +2,32 @@ import React ,{useContext,useEffect,useRef,useState} from 'react'
 import noteContext from '../context/notes/noteContext';
 import NoteItem from './NoteItem';
 import AddNotes from './AddNotes';
+import alertContext from '../context/alert/alertContext';
+import { useNavigate } from 'react-router-dom';
 
 
  const Notes = () => {
-
+  const navigate = useNavigate()
+  
+    const a = useContext(alertContext)
     const n = useContext(noteContext)
+
+    const {showAlert} = a;
     const {notes,fetchNotes,editNote} = n;
    
 
     const [note, setnote] = useState({id:"",title:"",description:"",tag:""})
 
 useEffect(() => {
-   
+
+  if(!localStorage.getItem('token')){
+    navigate('/login')
+  }
+  else{
+
     fetchNotes();
+    
+  }
 
 }, [])
 
@@ -36,6 +49,9 @@ const handleSaveChanges = ()=>{
   setnote(note)
   editNote(note.id,note.title,note.description,note.tag)
   closeRef.current.click();
+  showAlert("success","Note updated successfully")
+  showAlert("success","Note updated successfully")
+  
 
 }
 

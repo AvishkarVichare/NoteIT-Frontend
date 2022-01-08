@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import alertContext from '../context/alert/alertContext'
 
- const Alert = () => {
+ const Alert = (props) => {
+
+  const a = useContext(alertContext);
+
+  const {alert} = a;
+
     return (
-        <div class="alert alert-primary" role="alert">
-        This is a primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-      </div>
+    <div style={{height:"50px"}}>
+   {  alert && ( <div className={`alert alert-${alert.type}`} role="alert">
+        {alert.msg}
+
+      </div>)}
+    </div>
+
     )
 }
 export default Alert

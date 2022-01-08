@@ -1,14 +1,19 @@
-import React,{useState} from 'react'
+import React,{useContext, useState} from 'react'
 import { useNavigate} from "react-router-dom";
+import alertContext from '../context/alert/alertContext';
+import Alert from './Alert';
 
 
 const Login = () => {
 
   const host = 'http://localhost'
   
+    const a = useContext(alertContext);
     const navigate = useNavigate();
 
   const [credential, setcredential] = useState({email:"",password:""})
+  
+  const {showAlert} = a;
 
 const handleSubmit = async(e)=>{
 
@@ -25,11 +30,12 @@ const handleSubmit = async(e)=>{
   const json = await response.json();
 
   if(json.success){
-      localStorage.getItem('token',json.authenticateToken)
+      localStorage.setItem('token',json.authenticateToken)
       navigate('/')
+      showAlert("info","Logged In")
 
   }else{
-    alert("enter right things")
+    showAlert("danger","Please enter valid credentials")
   }
 
   console.log(json)
@@ -38,15 +44,16 @@ const handleSubmit = async(e)=>{
 const onchange = (e)=>{
 
   setcredential({...credential,[e.target.name]:e.target.value})
-  // console.log(credential)
+  console.log(credential)
 
 }
 
     return (
+      <>
+      <Alert/>
 <div className='container my-3'>
 
 <h2 className='text-center my-3'>Login</h2>
-
   <form onSubmit={handleSubmit}>
   <div className="form-group">
     <label htmlFor="email">Email address</label>
@@ -58,9 +65,10 @@ const onchange = (e)=>{
     <input onChange={onchange} type="password" className="form-control" id="password1" name="password" placeholder="Password"/>
   </div>
   
-  <button type="submit" className="btn btn-primary my-3">Submit</button>
+  <button type="submit" className="btn btn-primary my-3">Login</button>
 </form>
 </div>
+</>
 
     )
 }
