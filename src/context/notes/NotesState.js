@@ -3,7 +3,7 @@ import { useState } from "react";
 const NotesState = (props)=>{
 
 
-  const host = 'http://localhost'
+  const host = 'https://noteitserver.herokuapp.com'
 
 // const notesFetched = [
 //     {

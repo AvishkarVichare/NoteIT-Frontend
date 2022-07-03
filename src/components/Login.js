@@ -6,7 +6,7 @@ import Alert from './Alert';
 
 const Login = () => {
 
-  const host = 'http://localhost'
+  const host = 'https://noteitserver.herokuapp.com'
   
     const a = useContext(alertContext);
     const navigate = useNavigate();
