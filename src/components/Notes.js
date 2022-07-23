@@ -114,14 +114,16 @@ const closeRef = useRef(null)
 
         <div className='row my-4 justify-content-center'>
 
-        <h2 className='text-center my-4'>Your Notes</h2>
+        <h2 className='text-center my-4 '>Your Notes</h2>
+          <div style={{display:'flex',flexWrap:'wrap',flexDirection:'row-reverse',justifyContent:'center'}}>
 
           {notes.length===0 && "No notes added"}
             {notes.map(element=>{
-             return (
-                 <NoteItem key={element._id} note={element} updateNote={updateNote}  id={element._id} title={element.title} description={element.description}/>
-             )
-            })}
+              return (
+                <NoteItem key={element._id} note={element} updateNote={updateNote}  id={element._id} title={element.title} description={element.description}/>
+                )
+              })}
+              </div>
         </div>
     </>    
 
