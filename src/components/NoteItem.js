@@ -16,6 +16,14 @@ const NoteItem = (props) => {
     // }
 
     return (
+        <>
+
+<style>
+        {`.pwrap {
+          white-space: pre-line;
+        }`}
+      </style>
+
         <div className="card col-md-2 mx-4 my-4 p-4 ">
       
         <div className="card-body">
@@ -25,7 +33,7 @@ const NoteItem = (props) => {
            
 
         </div>
-        <div>{props.description}</div>
+        <div className='pwrap'>{props.description}</div>
         </div>
               <div className='d-flex'>
 
@@ -33,6 +41,8 @@ const NoteItem = (props) => {
         <i className="fas fa-trash mx-4" onClick={()=>{handleDelete(props.id)}}></i>
               </div>
       </div>
+      </>
+
     )
 }
 
