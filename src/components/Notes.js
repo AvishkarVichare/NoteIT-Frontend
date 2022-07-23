@@ -97,7 +97,8 @@ const closeRef = useRef(null)
   </div>
   <div className="mb-3">
     <label htmlFor="desc" className="form-label">Description</label>
-    <input type="text" className="form-control" id="desc" name="description" value={note.description} onChange={onChange} />
+    <textarea  rows="5" cols="50" type="text" className="form-control" id="desc" name="description" value={note.description}  onChange={onChange} >
+    </textarea>
   </div>
   <div className="mb-3">
     <label htmlFor="tag" className="form-label">Tag</label>

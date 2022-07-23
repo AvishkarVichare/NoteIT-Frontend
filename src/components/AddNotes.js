@@ -41,7 +41,7 @@ const AddNotes = () => {
   </div>
   <div className="mb-3">
     <label htmlFor="desc" className="form-label">Description</label>
-    <textarea type="text" className="form-control" id="desc" name="description" value={note.description}  onChange={onChange} >
+    <textarea  rows="4" cols="50" type="text" className="form-control" id="desc" name="description" value={note.description}  onChange={onChange} >
     </textarea>
   </div>
   <div className="mb-3">
