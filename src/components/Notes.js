@@ -116,7 +116,7 @@ const closeRef = useRef(null)
         <div className='row my-4 justify-content-center'>
 
         <h2 className='text-center my-4 '>Your Notes</h2>
-          <div style={{display:'flex',flexWrap:'wrap',flexDirection:'row-reverse',justifyContent:'center'}}>
+          <div className='notes'>
 
           {notes.length===0 && "No notes added"}
             {notes.map(element=>{

@@ -34,6 +34,15 @@ body{
   /* height: 200vh; */
 }
 
+
+.notes{
+  display:flex;
+  flex-wrap:wrap;
+  flex-direction:row-reverse;
+  justify-content:center;
+}
+
+
 @media  screen and (max-width:531px) {
   .footerContainer{
 
@@ -41,5 +50,9 @@ body{
     align-items: center;
     justify-content: space-around;
 
+  }
+
+  .notes{
+    flex-wrap: wrap-reverse;
   }
 }
